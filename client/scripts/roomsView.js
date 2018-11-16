@@ -6,7 +6,14 @@ var RoomsView = {
   initialize: function() {
   },
 
-  render: function() {
-  }
+  render: _.template(`
+  <div class="rooms select">
+  </div>
+  `),
+  
 
+  renderRoom: function(roomName) {
+    let $newRoomNode = $(this.render(roomName));
+    $newRoomNode.appendTo(this.$select); 
+  }
 };

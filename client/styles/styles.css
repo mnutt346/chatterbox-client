@@ -1,18 +1,21 @@
 body {
-    background: #eee;
+    background: rgb(177, 242, 253);
     text-align: center;
     padding: 0 25px;
     font-family: arial, sans-serif;
 }
 
 #main, #chats {
-    width: 500px;
+    width: 600px;
     margin: auto;
+    margin-top: 20px;
     text-align: left;
-    background: white;
+    background: rgba(243, 176, 89, 0.781);
     padding: 50px 60px;
     border: solid #ddd;
     border-width: 0 1px 1px 1px;
+    box-shadow: 5px 10px #303030ad;
+    border-radius: 10px;
 }
 
 #main h1 {
@@ -63,10 +66,24 @@ form input[type=text] {
     padding: 5px;
     margin-bottom: 5px;
     background-color: #eee;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .chat .username {
     font-weight: 800;
+    word-wrap: break-word;
+    margin-bottom: 15px;
+}
+
+.chat .chatmessage {
+    word-wrap: break-word;
+}
+
+.chat .timestamp {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 10px 0px 0px 15px;
 }
 
 .chat:hover {
@@ -88,3 +105,67 @@ form input[type=text] {
     background-color: #0090da;
 }
 
+#roombutton {
+    background: transparent; 
+    border: 3px solid #0099CC;
+    border-radius: 6px; 
+    color: rgb(255, 255, 255);
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+#roombutton:hover {
+    background-color: #008CBA;
+    color: white;
+}#roombutton {
+    background: transparent; 
+    border: 3px solid #0099CC;
+    border-radius: 6px; 
+    color: rgb(255, 255, 255);
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+#roombutton:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+
+.submit {
+    background: transparent; 
+    border: 3px solid #0099CC;
+    border-radius: 6px; 
+    color: rgb(255, 255, 255);
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+.submit:hover {
+    background-color: #008CBA;
+    color: white;
+}

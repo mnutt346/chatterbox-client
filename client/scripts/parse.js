@@ -30,9 +30,9 @@ var Parse = {
   },
 
   sanitizeMessage: function(message) {
-    for (let key in message) {
-      message[key] = encodeURIComponent(message[key])
-    }
+    // for (let key in message) {
+    //   message[key] = encodeURIComponent(message[key])
+    // }
     return message;
   }
 

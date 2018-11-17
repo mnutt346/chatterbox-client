@@ -23,7 +23,7 @@ var MessagesView = {
   },
 
   formatTime: function(entryTime) {
-    let formmatedTime = ('@' + entryTime.slice(11,16) + 'GMT ' + 
+    let formmatedTime = ('@ ' + entryTime.slice(11,16) + 'GMT ' + 
        entryTime.slice(5,7) + '/' + entryTime.slice(8,10) + '/' +
        entryTime.slice(0,4));
 

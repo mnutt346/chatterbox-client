@@ -4,6 +4,7 @@ var Parse = {
 
   create: function(message, successCB, errorCB = null) {
     // todo: save a message to the server
+    console.log('pushing')
     $.ajax({
       url: Parse.server,
       type: 'POST',

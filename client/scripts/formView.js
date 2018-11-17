@@ -8,14 +8,14 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
-    // Stop the browser from submitting the form
-    let message = {
-      username: 'banana',
-      text: $('#message')[0].value,
-      roomname: 'banana',
-      createdAt: new Date()
-    }
     event.preventDefault();
+
+    let message = {
+      // username: $('.username'),
+      username: App.username,
+      text: $('#message')[0].value,
+      roomname: window.currentRoom,
+    }
     
     Parse.create(message);
 
@@ -24,7 +24,12 @@ var FormView = {
     }, 100)
 
     let delayedReload = function() {
-      location.reload(true);
+      // location.reload(true);
+      MessagesView.$chats.empty();
+      Parse.readAll((data) => {
+        MessagesView.renderMessages(data, window.currentRoom);
+        window.data = data;
+      });
     }
     // let $newChatNode = $(MessageView.render(message));
     // console.log(FormView.$chats);

@@ -8,11 +8,11 @@ var MessagesView = {
   render: function() {
   },
 
-  renderMessage: function(data) {
+  renderMessages: function(data, chatRoom = 'Lobby') {
     
     for (let i = 0; i < data.results.length; i++) {
-      if(data.results[i].username) {
-        console.log(data.results[i])
+      if(data.results[i].username && data.results[i].text && 
+        (chatRoom === 'Lobby' || chatRoom === data.results[i].roomname)) {
         let $newChatNode = $(MessageView.render(data.results[i]));
         $newChatNode.appendTo(this.$chats); 
       }

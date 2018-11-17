@@ -3,8 +3,7 @@ var Parse = {
   server: `http://parse.${window.CAMPUS}.hackreactor.com/chatterbox/classes/messages`,
 
   create: function(message, successCB, errorCB = null) {
-    // todo: save a message to the server
-    console.log('pushing')
+    message = Parse.sanitizeMessage(message);
     $.ajax({
       url: Parse.server,
       type: 'POST',
@@ -28,6 +27,13 @@ var Parse = {
         console.error('chatterbox: Failed to fetch messages', error);
       }
     });
+  },
+
+  sanitizeMessage: function(message) {
+    for (let key in message) {
+      message[key] = encodeURIComponent(message[key])
+    }
+    return message;
   }
 
 };

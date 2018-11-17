@@ -2,11 +2,9 @@ var App = {
 
   $spinner: $('.spinner img'),
 
-  username: 'anonymous',
+  username: window.location.search.slice(10),
 
   initialize: function() {
-    // App.username = window.location.search.substr(10);
-
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
@@ -36,5 +34,6 @@ var App = {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
     Friends.initialize();
-  }
+  },
+
 };

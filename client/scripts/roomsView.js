@@ -1,14 +1,15 @@
 var RoomsView = {
 
-  $button: $('#rooms button'),
+  $button: $('#roombutton'),
+  $submitroom: $('#submitroom'),
   $select: $('#rooms select'),
 
   initialize: function() {
-    //RoomsView.handleChange;
     RoomsView.$select.on('change', RoomsView.handleChange);
-    console.log(RoomsView.$select)
-    //RoomsView.$select.addEventListener("change", function(){console.log('gfd')});
+    RoomsView.$button.on('click', RoomsView.handleSubmit);
   },
+
+
 
   handleChange: function(event) {
     event.preventDefault();
@@ -16,11 +17,10 @@ var RoomsView = {
     let chatRoom = RoomsView.$select[0].value;
     MessagesView.renderMessages(window.data, chatRoom);
     window.currentRoom = chatRoom;
-    console.log('hello');
   },
 
   render: _.template(`
-    <option value=<%- room %>><%- room %>
+    <option <%- selected %> value=<%- room %>><%- room %>
     </option>`
   ),
   
@@ -28,9 +28,22 @@ var RoomsView = {
   renderRooms: function(data) {
     let roomList = Rooms.listRooms(data);
     for (let room of roomList) {
-      let $newRoomNode = $(this.render({room: room}));
+      let $newRoomNode = $(this.render({room: room, selected: ''}));
       $newRoomNode.appendTo(this.$select); 
     }
     
+  },
+
+  handleSubmit: function(event) {
+    event.preventDefault();
+    MessagesView.$chats.empty();
+    let $newRoomNode = $(RoomsView.render({room: RoomsView.$submitroom[0].value, selected: 'selected'}));
+    $newRoomNode.appendTo(RoomsView.$select);
+    let chatRoom = RoomsView.$submitroom[0].value;
+    MessagesView.renderMessages(window.data, chatRoom);
+    window.currentRoom = chatRoom;
+    $('#submitroom')[0].value = '';
   }
+
+
 };

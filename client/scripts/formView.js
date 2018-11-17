@@ -11,7 +11,6 @@ var FormView = {
     event.preventDefault();
 
     let message = {
-      // username: $('.username'),
       username: App.username,
       text: $('#message')[0].value,
       roomname: window.currentRoom,
@@ -24,18 +23,13 @@ var FormView = {
     }, 100)
 
     let delayedReload = function() {
-      // location.reload(true);
       MessagesView.$chats.empty();
+      $('#message')[0].value = '';
       Parse.readAll((data) => {
         MessagesView.renderMessages(data, window.currentRoom);
         window.data = data;
       });
     }
-    // let $newChatNode = $(MessageView.render(message));
-    // console.log(FormView.$chats);
-    // FormView.$chats.prepend($newChatNode);
-
-
   },
 
   setStatus: function(active) {

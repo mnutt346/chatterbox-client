@@ -18,6 +18,7 @@
         }
         search += 'username=' + (prompt('What is your name?') || 'anonymous');
         window.location.search = search;
+
       }
     </script>
   </head>
@@ -28,7 +29,12 @@
       <div id="rooms">
         Room:
         <select></select>
-        <button>Add Room</button>
+      </div>
+      <div class="addroom">
+        <form>
+          <input type="text" name="addroom" id="submitroom"/>
+          <input type="submit" name="submitroom" value="Add room" id="roombutton"/>
+        </form>
       </div>
       <form action="#" id="send" method="post">
         <input type="text" name="message" id="message"/>

@@ -3,17 +3,16 @@ var Friends = {
     
 
     initialize: function() {
-        //Friends.$username.on('click', Friends.toggleStatus);
-        //Friends.$username.click(Friends.toggleStatus);
-        let $username = $('.username');
-        // Friends.$username.click(function(){console.log('SUCCESS')})
+        window.friendsList = new Set();
+        $username =  $('.username')
         $username.click(Friends.toggleStatus)
     },
 
 
     toggleStatus: function(event) {
-        console.log('hello')
-        //event.preventDefault();
+        if (event.target.innerHTML !== App.username){
+            window.friendsList.add(event.target.innerHTML)
+        }
     }
 
 };

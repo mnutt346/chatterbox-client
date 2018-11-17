@@ -10,7 +10,7 @@ var MessagesView = {
 
   renderMessage: function(data) {
     
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < data.results.length; i++) {
       if(data.results[i].username) {
         console.log(data.results[i])
         let $newChatNode = $(MessageView.render(data.results[i]));
